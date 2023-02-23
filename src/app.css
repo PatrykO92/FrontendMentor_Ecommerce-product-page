@@ -67,14 +67,21 @@ nav {
   gap: 3rem;
 }
 
-nav {
-  gap: 2rem;
-}
-
 .navigation-left {
   flex: 1;
-
   align-items: center;
+}
+
+.navigation-left a {
+  color: var(--secondary-color2);
+}
+
+.hamburger-menu {
+  display: none;
+}
+
+nav {
+  gap: 2rem;
 }
 
 .navigation-left img {
@@ -89,21 +96,20 @@ nav {
 .avatar-img {
   max-height: 3rem;
   border-radius: 50%;
-  border: 2px solid var(--primary-color1);
+}
+
+.avatar-img:hover {
+  box-shadow: 0 0 1px 5px var(--primary-color1);
 }
 
 nav > a:hover {
   text-decoration: underline;
   text-decoration-thickness: 4px;
+  text-underline-offset: 3.9rem;
   text-decoration-color: var(--primary-color1);
 }
 
-.product-gallery {
-  min-height: 500px;
-  min-width: 50%;
-  background-color: aliceblue;
-}
-
+.product-gallery,
 .product-description {
   min-height: 500px;
   min-width: 50%;
@@ -111,6 +117,30 @@ nav > a:hover {
 }
 
 @media screen and (max-width: 1440px) {
+  header {
+    padding: 0 2rem;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .navigation-left,
+  .navigation-right {
+    gap: 1rem;
+    align-items: center;
+    align-content: center;
+  }
+
+  nav {
+    display: none;
+  }
+  .hamburger-menu {
+    display: block;
+    height: 2rem;
+  }
+  .logo,
+  .hamburger-menu {
+    max-height: 1.4rem;
+  }
 }
 
 @media screen and (max-width: 375px) {

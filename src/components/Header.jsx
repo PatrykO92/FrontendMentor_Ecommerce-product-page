@@ -1,11 +1,14 @@
-import { logo, iconCart } from "../icons";
+import { logo, cartIcon, hamburgerIcon } from "../icons";
 import { imageAvatar } from "../images";
 
 const Header = () => {
   return (
     <header>
       <div className="navigation-left">
-        <img src={logo} alt="logo" />
+        <button className="hamburger-menu">
+          <img src={hamburgerIcon} alt="menu" />
+        </button>
+        <img src={logo} alt="logo" className="logo" />
         <nav>
           <a href="#collections">Collections</a>
           <a href="#men">Men</a>
@@ -16,7 +19,7 @@ const Header = () => {
       </div>
       <div className="navigation-right">
         <button>
-          <img src={iconCart} alt="shopping cart" />
+          <img src={cartIcon} alt="shopping cart" />
         </button>
         <button>
           <img src={imageAvatar} alt="avatar image" className="avatar-img" />
