@@ -28,7 +28,6 @@
   margin: 0;
   font-family: KumbhSans;
   text-decoration: none;
-  border: 1px solid green;
 }
 
 p {
@@ -38,10 +37,6 @@ p {
 button {
   all: unset;
   cursor: pointer;
-}
-
-button:focus {
-  outline: orange 5px auto;
 }
 
 .container {
@@ -65,6 +60,7 @@ header {
 nav {
   display: flex;
   gap: 3rem;
+  flex-shrink: 1;
 }
 
 .navigation-left {
@@ -72,11 +68,9 @@ nav {
   align-items: center;
 }
 
-.navigation-left a {
-  color: var(--secondary-color2);
-}
-
-.hamburger-menu {
+.hamburger-menu,
+.close-menu,
+.close-menu-icon {
   display: none;
 }
 
@@ -84,7 +78,11 @@ nav {
   gap: 2rem;
 }
 
-.navigation-left img {
+nav a {
+  color: var(--secondary-color2);
+}
+
+.logo {
   height: 2rem;
 }
 
@@ -99,7 +97,7 @@ nav {
 }
 
 .avatar-img:hover {
-  box-shadow: 0 0 1px 5px var(--primary-color1);
+  box-shadow: 0 0 1px 3px var(--primary-color1);
 }
 
 nav > a:hover {
@@ -122,24 +120,76 @@ nav > a:hover {
   }
 }
 
-@media screen and (max-width: 860px) {
+@media screen and (max-width: 900px) {
+  header {
+    padding: 0 1.5rem;
+    height: 5rem;
+  }
+
   .navigation-left,
   .navigation-right {
     gap: 1rem;
-    align-items: center;
     align-content: center;
   }
 
-  nav {
-    display: none;
+  .menu-hidden {
+    transform: translateX(-150%);
   }
+
+  nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem 0 0 2rem;
+    gap: 1.3rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    background: linear-gradient(
+      90deg,
+      var(--secondary-color5) 0%,
+      var(--secondary-color5) 75%,
+      var(--background-color1) 75%,
+      var(--background-color1) 100%
+    );
+    transition: all 2s;
+  }
+
+  nav a {
+    color: black;
+  }
+
+  nav > a:hover {
+    text-underline-offset: 0.5rem;
+  }
+
+  .close-menu-button {
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .close-menu-icon {
+    display: block;
+  }
+
   .hamburger-menu {
     display: block;
-    height: 2rem;
+    margin-top: 2px;
+    height: 1.3rem;
   }
-  .logo,
-  .hamburger-menu {
+
+  .hamburger-menu > img {
+    height: 100%;
+  }
+
+  .logo {
     max-height: 1.4rem;
+  }
+
+  .avatar-img {
+    max-height: 1.5rem;
   }
 }
 

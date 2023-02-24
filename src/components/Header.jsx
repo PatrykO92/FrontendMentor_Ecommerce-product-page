@@ -1,15 +1,36 @@
-import { logo, cartIcon, hamburgerIcon } from "../icons";
+import { useState } from "react";
+
+import { logo, cartIcon, hamburgerIcon, closeIcon } from "../icons";
 import { imageAvatar } from "../images";
 
 const Header = () => {
+  const [menuOpened, setMenuOpened] = useState(false);
+
+  const handleMenuOpen = () => {
+    setMenuOpened(!menuOpened);
+  };
+
   return (
     <header>
       <div className="navigation-left">
-        <button className="hamburger-menu">
+        <button
+          className="hamburger-menu"
+          onClick={() => {
+            handleMenuOpen();
+          }}
+        >
           <img src={hamburgerIcon} alt="menu" />
         </button>
         <img src={logo} alt="logo" className="logo" />
-        <nav>
+        <nav className={menuOpened ? "" : "menu-hidden"}>
+          <button
+            className="close-menu-button"
+            onClick={() => {
+              handleMenuOpen();
+            }}
+          >
+            <img src={closeIcon} alt="close menu" className="close-menu-icon" />
+          </button>
           <a href="#collections">Collections</a>
           <a href="#men">Men</a>
           <a href="#women">Women</a>
