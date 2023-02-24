@@ -1,4 +1,6 @@
-const pretendedApiRespond = {
+import { img1, img1t, img2, img2t, img3, img3t, img4, img4t } from "../images";
+
+const pretendedApiResponse = {
   company: "Sneaker Company",
   name: "Fall Limited Edition Sneakers",
   description: `These low-profile sneakers
@@ -7,23 +9,11 @@ const pretendedApiRespond = {
   price: 250.0,
   discount: 50,
   images: [
-    [
-      "../images/image-product-1-thumbnail.jpg",
-      "../images/image-product-1.jpg",
-    ],
-    [
-      "../images/image-product-2-thumbnail.jpg",
-      "../images/image-product-2.jpg",
-    ],
-    [
-      "../images/image-product-3-thumbnail.jpg",
-      "../images/image-product-3.jpg",
-    ],
-    [
-      "../images/image-product-4-thumbnail.jpg",
-      "../images/image-product-4.jpg",
-    ],
+    [img1, img1t],
+    [img2, img2t],
+    [img3, img3t],
+    [img4, img4t],
   ],
 };
 
-export default pretendedApiRespond;
+export default pretendedApiResponse;

@@ -1,7 +1,14 @@
+import "../css/header.css";
+
 import { useState } from "react";
 
-import { logo, cartIcon, hamburgerIcon, closeIcon } from "../icons";
-import { imageAvatar } from "../images";
+import {
+  logo,
+  cartIcon,
+  hamburgerIcon,
+  closeIcon,
+  imageAvatar,
+} from "../icons";
 
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
