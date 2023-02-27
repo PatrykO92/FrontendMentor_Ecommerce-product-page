@@ -1,0 +1,53 @@
+.product-description-component {
+  max-height: 1200px;
+  max-width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  padding: 0 3rem 0 2rem;
+}
+
+.product-company {
+  color: var(--primary-color1);
+  font-weight: bold;
+}
+
+.product-name {
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.product-description {
+  text-align: justify;
+  font-size: 1.2rem;
+}
+
+.actual-price {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.discount {
+  font-weight: bold;
+  padding: 2px;
+  border-radius: 5px;
+  color: var(--primary-color1);
+  background-color: var(--primary-color2);
+  margin: 0.7rem;
+}
+
+.original-price {
+  display: block;
+  text-decoration: line-through;
+  color: var(--secondary-color3);
+  margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 900px) {
+}
