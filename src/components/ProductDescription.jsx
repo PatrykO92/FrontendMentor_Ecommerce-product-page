@@ -9,6 +9,15 @@ const ProductDescription = ({ actualProduct }) => {
   const [productData, setProductData] = useState({});
   const [counter, setCounter] = useState(0);
 
+  const changeCounter = (change) => {
+    if (counter + change >= 0 && counter + change < 100)
+      setCounter(counter + change);
+  };
+
+  const addToCart = () => {
+    console.log("lol");
+  };
+
   useEffect(() => {
     if (actualProduct?.name) {
       setProductData(actualProduct);
@@ -37,15 +46,28 @@ const ProductDescription = ({ actualProduct }) => {
           </div>
           <div className="product-basket">
             <div className="quantity-chart">
-              <button>
-                <img src={minusIcon} onClick={() => {}} />
+              <button
+                onClick={() => {
+                  changeCounter(-1);
+                }}
+              >
+                <img src={minusIcon} alt="minus" />
               </button>
               <span className="product-counter">{counter}</span>
-              <button>
-                <img src={plusIcon} />
+              <button
+                onClick={() => {
+                  changeCounter(1);
+                }}
+              >
+                <img src={plusIcon} alt="plus" />
               </button>
             </div>
-            <button className="add-to-cart">
+            <button
+              className="add-to-cart"
+              onClick={() => {
+                addToCart();
+              }}
+            >
               <img src={cartIcon} alt="cart" />
               Add to cart
             </button>
