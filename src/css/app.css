@@ -46,7 +46,6 @@ button {
   flex-wrap: wrap;
 }
 
-.product-gallery,
 .product-description {
   min-height: calc(100vh - 9rem);
   max-height: 1200px;

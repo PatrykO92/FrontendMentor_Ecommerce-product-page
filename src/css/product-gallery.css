@@ -1,3 +1,12 @@
+.product-gallery {
+  min-height: calc(100vh - 9rem);
+  max-height: 1200px;
+  max-width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .gallery {
   margin: 4rem;
   display: flex;
@@ -6,8 +15,13 @@
 }
 
 .actual-photo {
+  position: relative;
   width: 100%;
   max-width: 700px;
+}
+
+.actual-photo button {
+  display: none;
 }
 
 .actual-photo img {
@@ -27,5 +41,54 @@
 
 .thumbnails-menu img:hover {
   opacity: 0.6;
-  box-shadow: 0 0 4px 1px var(--primary-color1);
+  outline: solid var(--primary-color1);
+}
+
+@media screen and (max-width: 900px) {
+  .product-gallery {
+    width: 100%;
+    max-width: 100%;
+    min-height: 0;
+  }
+
+  .gallery {
+    margin: 0;
+  }
+
+  .actual-photo {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .actual-photo img {
+    max-width: 100%;
+    border-radius: 0;
+    overflow: hidden;
+  }
+
+  .thumbnails-menu {
+    display: none;
+  }
+
+  .actual-photo button {
+    display: block;
+    position: absolute;
+    top: 48%;
+    background-color: var(--secondary-color5);
+    border-radius: 50%;
+    padding: 1rem;
+  }
+
+  .actual-photo button > img {
+    height: 1rem;
+    width: 0.8rem;
+  }
+
+  .previous-button {
+    left: 5%;
+  }
+
+  .next-button {
+    right: 5%;
+  }
 }

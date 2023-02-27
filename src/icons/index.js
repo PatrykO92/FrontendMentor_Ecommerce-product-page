@@ -3,5 +3,15 @@ import cartIcon from "./icon-cart.svg";
 import hamburgerIcon from "./icon-menu.svg";
 import closeIcon from "./icon-close.svg";
 import imageAvatar from "./image-avatar.png";
+import previousIcon from "./icon-previous.svg";
+import nextIcon from "./icon-next.svg";
 
-export { logo, cartIcon, hamburgerIcon, closeIcon, imageAvatar };
+export {
+  logo,
+  cartIcon,
+  hamburgerIcon,
+  closeIcon,
+  imageAvatar,
+  previousIcon,
+  nextIcon,
+};
