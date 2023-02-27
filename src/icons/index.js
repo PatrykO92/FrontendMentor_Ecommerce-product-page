@@ -5,6 +5,8 @@ import closeIcon from "./icon-close.svg";
 import imageAvatar from "./image-avatar.png";
 import previousIcon from "./icon-previous.svg";
 import nextIcon from "./icon-next.svg";
+import plusIcon from "./icon-plus.svg";
+import minusIcon from "./icon-minus.svg";
 
 export {
   logo,
@@ -14,4 +16,6 @@ export {
   imageAvatar,
   previousIcon,
   nextIcon,
+  plusIcon,
+  minusIcon,
 };

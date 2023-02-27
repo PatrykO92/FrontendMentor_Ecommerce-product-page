@@ -1,7 +1,7 @@
 import { img1, img1t, img2, img2t, img3, img3t, img4, img4t } from "../images";
 
 const pretendedApiResponse = {
-  company: "Sneaker Company",
+  company: "SNEAKER COMPANY",
   name: "Fall Limited Edition Sneakers",
   description: `These low-profile sneakers
   are your perfect casual wear companion. Featuring a durable rubber outer
