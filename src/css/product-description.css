@@ -1,9 +1,9 @@
 .product-description-component {
   max-height: 1200px;
   max-width: 50%;
+  min-width: 280px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .product {
@@ -24,11 +24,21 @@
 }
 
 .product-description {
+  color: var(--secondary-color2);
   text-align: justify;
   font-size: 1.2rem;
+  line-height: 1.6rem;
+}
+
+.price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
 }
 
 .actual-price {
+  padding: 2px;
   font-size: 1.4rem;
   font-weight: bold;
 }
@@ -39,18 +49,18 @@
   border-radius: 5px;
   color: var(--primary-color1);
   background-color: var(--primary-color2);
-  margin: 0.7rem;
 }
 
 .original-price {
-  display: block;
+  flex-basis: 100%;
   text-decoration: line-through;
   color: var(--secondary-color3);
-  margin-top: 0.5rem;
 }
 
 .product-basket {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
 }
 
 .quantity-chart {
@@ -70,6 +80,7 @@
 }
 
 .add-to-cart {
+  font-weight: bold;
   background-color: var(--primary-color1);
   color: var(--secondary-color5);
   padding: 1rem;
@@ -89,6 +100,32 @@
 @media screen and (max-width: 900px) {
   .product-description-component {
     max-width: 100%;
-    padding-bottom: 2rem;
+    padding: 1.2rem 0;
+  }
+
+  .product {
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .product-name {
+    font-size: 2.1rem;
+  }
+
+  .product-description {
+    font-size: 1rem;
+  }
+
+  .original-price {
+    text-align: right;
+    flex: 1;
+  }
+
+  .product-basket * {
+    flex-basis: 100%;
+  }
+
+  .add-to-cart {
+    margin: 0;
   }
 }

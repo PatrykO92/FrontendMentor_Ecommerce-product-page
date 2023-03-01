@@ -1,11 +1,19 @@
 import { useEffect, useState } from "react";
+
 import "./css/app.css";
-import { Header, ProductGallery, ProductDescription } from "./components";
+
+import {
+  Header,
+  ProductGallery,
+  ProductDescription,
+  Basket,
+} from "./components";
 import { apiResponse } from "./utils";
 
 function App() {
   const [actualProduct, setActualProduct] = useState({});
-  const [basketStatus, setbasketStatus] = useState([]);
+  const [basketStatus, setBasketStatus] = useState([]);
+  const [basketVisibility, setBasketVisibility] = useState(false);
 
   useEffect(() => {
     // Pretended api fetch V
@@ -16,7 +24,8 @@ function App() {
 
   return (
     <div className="container">
-      <Header basket={basketStatus} />
+      <Header basketStatus={basketStatus} />
+      {basketVisibility && <Basket basketStatus={basketStatus} />}
       <ProductGallery actualProduct={actualProduct} />
       <ProductDescription actualProduct={actualProduct} />
     </div>

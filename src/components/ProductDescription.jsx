@@ -34,15 +34,14 @@ const ProductDescription = ({ actualProduct }) => {
           <div className="product-company">{productData.company}</div>
           <div className="product-name">{productData.name}</div>
           <div className="product-description">{productData.description}</div>
-          <div>
-            <span className="actual-price">
+          <div className="price">
+            <p className="actual-price">
               $
               {productData.price -
                 (productData.discount * productData.price) / 100}
-            </span>
-            <span className="discount">{productData.discount}%</span>
-            <span className="original-price">${productData.price}</span>
-            <br />
+            </p>
+            <p className="discount">{productData.discount}%</p>
+            <p className="original-price">${productData.price}</p>
           </div>
           <div className="product-basket">
             <div className="quantity-chart">

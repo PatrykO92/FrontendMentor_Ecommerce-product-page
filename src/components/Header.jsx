@@ -50,7 +50,7 @@ const Header = () => {
           <img src={cartIcon} alt="shopping cart" />
         </button>
         <button>
-          <img src={imageAvatar} alt="avatar image" className="avatar-img" />
+          <img src={imageAvatar} alt="avatar" className="avatar-img" />
         </button>
       </div>
     </header>
