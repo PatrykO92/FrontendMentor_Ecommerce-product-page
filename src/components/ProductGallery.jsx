@@ -1,6 +1,6 @@
 import "../css/product-gallery.css";
 import { LoadingComponent } from "./";
-import { previousIcon, nextIcon } from "../icons";
+import { previousIcon, nextIcon, closeIcon } from "../icons";
 
 import { useState, useEffect } from "react";
 
@@ -9,14 +9,30 @@ const ProductGallery = ({ actualProduct }) => {
   const [galleryImages, setGalleryImages] = useState([]);
   const [actualImage, setActualImage] = useState("");
 
-  const changePhoto = (counter) => {
-    const check = galleryImages.findIndex((item) => item.includes(actualImage));
+  const [isLigthbox, setIsLightbox] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState("");
+
+  const changePhoto = (counter, lightbox = false) => {
+    let check;
+
+    lightbox
+      ? (check = galleryImages.findIndex((item) =>
+          item.includes(lightboxImage)
+        ))
+      : (check = galleryImages.findIndex((item) => item.includes(actualImage)));
+
     if (check + counter < 0) {
-      setActualImage(galleryImages[galleryImages.length - 1][0]);
+      lightbox
+        ? setLightboxImage(galleryImages[galleryImages.length - 1][0])
+        : setActualImage(galleryImages[galleryImages.length - 1][0]);
     } else if (check + counter > galleryImages.length - 1) {
-      setActualImage(galleryImages[0][0]);
+      lightbox
+        ? setLightboxImage(galleryImages[0][0])
+        : setActualImage(galleryImages[0][0]);
     } else {
-      setActualImage(galleryImages[check + counter][0]);
+      lightbox
+        ? setLightboxImage(galleryImages[check + counter][0])
+        : setActualImage(galleryImages[check + counter][0]);
     }
   };
 
@@ -40,7 +56,14 @@ const ProductGallery = ({ actualProduct }) => {
       ) : (
         <div className="gallery">
           <div className="actual-photo">
-            <img src={actualImage} alt={`${actualProduct?.name}`} />
+            <img
+              src={actualImage}
+              alt={`${actualProduct?.name}`}
+              onClick={() => {
+                setLightboxImage(actualImage);
+                setIsLightbox(true);
+              }}
+            />
             <button className="previous-button" onClick={() => changePhoto(-1)}>
               <img src={previousIcon} alt="previous" />
             </button>
@@ -63,6 +86,52 @@ const ProductGallery = ({ actualProduct }) => {
             })}
           </div>
         </div>
+      )}
+      {isLigthbox ? (
+        <div className="light-box">
+          <div className="lb-actual-photo-container">
+            <button
+              onClick={() => setIsLightbox(false)}
+              className="lb-close-menu"
+            >
+              <img src={closeIcon} alt="previous" />
+            </button>
+            <img
+              src={lightboxImage}
+              alt={`${actualProduct?.name}`}
+              className="lb-actual-image"
+            />
+            <button
+              onClick={() => changePhoto(-1, true)}
+              className="lb-previous-button"
+            >
+              <img src={previousIcon} alt="previous" />
+            </button>
+            <button
+              onClick={() => changePhoto(1, true)}
+              className="lb-next-button"
+            >
+              <img src={nextIcon} alt="next" />
+            </button>
+          </div>
+          <div className="lb-thumbnails-list">
+            {galleryImages.map((item, i) => {
+              return (
+                <img
+                  className="lb-thumb-img"
+                  key={i}
+                  src={item[1]}
+                  alt=""
+                  onClick={() => {
+                    setActualImage(item[0]);
+                  }}
+                />
+              );
+            })}
+          </div>
+        </div>
+      ) : (
+        <></>
       )}
     </div>
   );

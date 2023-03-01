@@ -37,11 +37,13 @@ const ProductDescription = ({ actualProduct }) => {
           <div className="price">
             <p className="actual-price">
               $
-              {productData.price -
-                (productData.discount * productData.price) / 100}
+              {(
+                productData.price -
+                (productData.discount * productData.price) / 100
+              ).toFixed(2)}
             </p>
             <p className="discount">{productData.discount}%</p>
-            <p className="original-price">${productData.price}</p>
+            <p className="original-price">${productData.price.toFixed(2)}</p>
           </div>
           <div className="product-basket">
             <div className="quantity-chart">
