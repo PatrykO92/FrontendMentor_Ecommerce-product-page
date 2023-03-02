@@ -7,6 +7,7 @@ import previousIcon from "./icon-previous.svg";
 import nextIcon from "./icon-next.svg";
 import plusIcon from "./icon-plus.svg";
 import minusIcon from "./icon-minus.svg";
+import deleteIcon from "./icon-delete.svg";
 
 export {
   logo,
@@ -18,4 +19,5 @@ export {
   nextIcon,
   plusIcon,
   minusIcon,
+  deleteIcon,
 };

@@ -45,7 +45,7 @@ const ProductDescription = ({ actualProduct }) => {
             <p className="discount">{productData.discount}%</p>
             <p className="original-price">${productData.price.toFixed(2)}</p>
           </div>
-          <div className="product-basket">
+          <div className="product-cart">
             <div className="quantity-chart">
               <button
                 onClick={() => {

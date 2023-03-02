@@ -57,7 +57,7 @@
   color: var(--secondary-color3);
 }
 
-.product-basket {
+.product-cart {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
@@ -121,7 +121,7 @@
     flex: 1;
   }
 
-  .product-basket * {
+  .product-cart * {
     flex-basis: 100%;
   }
 
