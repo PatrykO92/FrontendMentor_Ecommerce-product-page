@@ -94,7 +94,7 @@ const ProductGallery = ({ actualProduct }) => {
               onClick={() => setIsLightbox(false)}
               className="lb-close-menu"
             >
-              <img src={closeIcon} alt="previous" />
+              <img src={closeIcon} alt="close" />
             </button>
             <img
               src={lightboxImage}
@@ -123,7 +123,7 @@ const ProductGallery = ({ actualProduct }) => {
                   src={item[1]}
                   alt=""
                   onClick={() => {
-                    setActualImage(item[0]);
+                    setLightboxImage(item[0]);
                   }}
                 />
               );

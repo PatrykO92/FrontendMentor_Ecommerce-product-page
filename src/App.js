@@ -13,7 +13,7 @@ import { apiResponse } from "./utils";
 function App() {
   const [actualProduct, setActualProduct] = useState({});
   const [basketStatus, setBasketStatus] = useState([]);
-  const [basketVisibility, setBasketVisibility] = useState(false);
+  const [basketVisibility, setBasketVisibility] = useState(true);
 
   useEffect(() => {
     // Pretended api fetch V
