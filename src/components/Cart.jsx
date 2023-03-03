@@ -14,19 +14,12 @@ const Cart = ({ cartStatus, onCartChange }) => {
   useEffect(() => {
     if (cartList !== cartStatus) {
       setCartList(cartStatus);
-    } else {
-      console.log("changed");
     }
-  }, [cartStatus]);
+  }, [cartList, cartStatus]);
 
   return (
     <div className="cart">
-      <div
-        className="cart-title-box"
-        onClick={() => {
-          console.log(cartList);
-        }}
-      >
+      <div className="cart-title-box" onClick={() => {}}>
         Cart
       </div>
       <div className="cart-product-list">
@@ -34,8 +27,6 @@ const Cart = ({ cartStatus, onCartChange }) => {
           <p>Your cart is empty</p>
         ) : (
           cartList.map((item, index) => {
-            console.log(item);
-
             const itemPrice =
               item.product.price -
               (item.product.discount * item.product.price) / 100;
@@ -44,7 +35,7 @@ const Cart = ({ cartStatus, onCartChange }) => {
 
             return (
               <div key={index}>
-                <img src={item.product.images[0][1]} />
+                <img src={item.product.images[0][1]} alt={item.product.name} />
                 <p>
                   <span>
                     {item.product.name.length > 29
