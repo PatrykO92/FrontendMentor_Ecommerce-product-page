@@ -8,22 +8,48 @@ import { apiResponse } from "./utils";
 function App() {
   const [actualProduct, setActualProduct] = useState({});
   const [cartStatus, setCartStatus] = useState([]);
-  const [cartVisibility, setCartVisibility] = useState(true);
+  const [cartCounter, setCartCounter] = useState(0);
+  const [cartVisibility, setCartVisibility] = useState(false);
+
+  const handleCartChange = (newObject) => {
+    setCartStatus(newObject);
+  };
+
+  const addToCart = (quantity) => {
+    if (quantity <= 0) return;
+
+    setCartStatus((prevState) => [
+      ...prevState,
+      { quantity: quantity, product: actualProduct },
+    ]);
+  };
+
+  const changeCartVisibility = () => {
+    setCartVisibility(!cartVisibility);
+  };
 
   useEffect(() => {
-    // Pretended api fetch V
     setTimeout(() => {
       setActualProduct(apiResponse);
-      setCartStatus([{ quantity: 3, product: apiResponse }]);
     }, 2500);
   }, []);
 
+  useEffect(() => {
+    const counter = cartStatus.reduce((acc, item) => acc + item.quantity, 0);
+    setCartCounter(counter);
+  }, [cartStatus]);
+
   return (
     <div className="container">
-      <Header cartStatus={cartStatus} />
-      {cartVisibility && <Cart cartStatus={cartStatus} />}
+      <Header cartCounter={cartCounter} changeCartView={changeCartVisibility} />
+      {cartVisibility && (
+        <Cart cartStatus={cartStatus} onCartChange={handleCartChange} />
+      )}
       <ProductGallery actualProduct={actualProduct} />
-      <ProductDescription actualProduct={actualProduct} />
+      <ProductDescription
+        actualProduct={actualProduct}
+        onPressButton={addToCart}
+      />
     </div>
   );
 }

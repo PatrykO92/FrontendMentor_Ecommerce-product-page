@@ -4,7 +4,7 @@ import { plusIcon, minusIcon, cartIcon } from "../icons";
 
 import { useEffect, useState } from "react";
 
-const ProductDescription = ({ actualProduct }) => {
+const ProductDescription = ({ actualProduct, onPressButton }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [productData, setProductData] = useState({});
   const [counter, setCounter] = useState(0);
@@ -15,7 +15,7 @@ const ProductDescription = ({ actualProduct }) => {
   };
 
   const addToCart = () => {
-    console.log("lol");
+    onPressButton(counter);
   };
 
   useEffect(() => {

@@ -26,7 +26,10 @@
 }
 
 .cart-product-list > p {
-  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 180px;
   font-weight: bold;
   color: var(--secondary-color2);
   text-align: center;

@@ -10,7 +10,7 @@ import {
   imageAvatar,
 } from "../icons";
 
-const Header = () => {
+const Header = ({ cartCounter, changeCartView }) => {
   const [menuOpened, setMenuOpened] = useState(false);
 
   const handleMenuOpen = () => {
@@ -46,7 +46,12 @@ const Header = () => {
         </nav>
       </div>
       <div className="navigation-right">
-        <button>
+        <button
+          onClick={() => {
+            changeCartView();
+          }}
+        >
+          {cartCounter > 0 ? <span>{cartCounter}</span> : <></>}
           <img src={cartIcon} alt="shopping cart" />
         </button>
         <button>

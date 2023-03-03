@@ -2,11 +2,21 @@ import { useEffect, useState } from "react";
 import "../css/cart.css";
 import { deleteIcon } from "../icons";
 
-const Cart = ({ cartStatus }) => {
+const Cart = ({ cartStatus, onCartChange }) => {
   const [cartList, setCartList] = useState([]);
 
+  const removeProductFromCart = (product) => {
+    const arrayAfterRemove = cartList.filter((item) => item !== product);
+    setCartList(arrayAfterRemove);
+    onCartChange(arrayAfterRemove);
+  };
+
   useEffect(() => {
-    setCartList(cartStatus);
+    if (cartList !== cartStatus) {
+      setCartList(cartStatus);
+    } else {
+      console.log("changed");
+    }
   }, [cartStatus]);
 
   return (
@@ -41,10 +51,10 @@ const Cart = ({ cartStatus }) => {
                       ? `${item.product.name.slice(0, 27)}...`
                       : item.product.name}
                   </span>
-                  <br />${itemPrice.toFixed(2)} x {item.quantity}{" "}
-                  <span>${totalPrice.toFixed(2)}</span>
+                  <br />${itemPrice.toFixed(2)} x {item.quantity}
+                  <span> ${totalPrice.toFixed(2)}</span>
                 </p>
-                <button>
+                <button onClick={() => removeProductFromCart(item)}>
                   <img src={deleteIcon} alt="remove" />
                 </button>
               </div>
@@ -52,9 +62,13 @@ const Cart = ({ cartStatus }) => {
           })
         )}
       </div>
-      <div className="cart-checkout-button">
-        <button>Checkout</button>
-      </div>
+      {cartList.length >= 1 ? (
+        <div className="cart-checkout-button">
+          <button>Checkout</button>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
