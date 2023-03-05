@@ -73,16 +73,31 @@ const ProductGallery = ({ actualProduct }) => {
           </div>
           <div className="thumbnails-menu">
             {galleryImages.map((item, i) => {
-              return (
-                <img
-                  key={i}
-                  src={item[1]}
-                  alt=""
-                  onClick={() => {
-                    setActualImage(item[0]);
-                  }}
-                />
-              );
+              if (item[0] === actualImage) {
+                return (
+                  <div key={i} className="active-thumbnail">
+                    <img
+                      src={item[1]}
+                      alt=""
+                      onClick={() => {
+                        setActualImage(item[0]);
+                      }}
+                    />
+                  </div>
+                );
+              } else {
+                return (
+                  <div key={i}>
+                    <img
+                      src={item[1]}
+                      alt=""
+                      onClick={() => {
+                        setActualImage(item[0]);
+                      }}
+                    />
+                  </div>
+                );
+              }
             })}
           </div>
         </div>
@@ -114,19 +129,33 @@ const ProductGallery = ({ actualProduct }) => {
               <img src={nextIcon} alt="next" />
             </button>
           </div>
-          <div className="lb-thumbnails-list">
+          <div className="lb-thumbnails-menu">
             {galleryImages.map((item, i) => {
-              return (
-                <img
-                  className="lb-thumb-img"
-                  key={i}
-                  src={item[1]}
-                  alt=""
-                  onClick={() => {
-                    setLightboxImage(item[0]);
-                  }}
-                />
-              );
+              if (item[0] === lightboxImage) {
+                return (
+                  <div key={i} className="active-thumbnail">
+                    <img
+                      src={item[1]}
+                      alt=""
+                      onClick={() => {
+                        setLightboxImage(item[0]);
+                      }}
+                    />
+                  </div>
+                );
+              } else {
+                return (
+                  <div key={i}>
+                    <img
+                      src={item[1]}
+                      alt=""
+                      onClick={() => {
+                        setLightboxImage(item[0]);
+                      }}
+                    />
+                  </div>
+                );
+              }
             })}
           </div>
         </div>

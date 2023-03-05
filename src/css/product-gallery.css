@@ -34,14 +34,28 @@
   justify-content: space-between;
 }
 
-.thumbnails-menu img {
+.thumbnails-menu > div {
   max-width: 20%;
-  border-radius: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
 }
 
-.thumbnails-menu img:hover {
-  opacity: 0.6;
-  outline: solid var(--primary-color1);
+.thumbnails-menu img {
+  max-width: 100%;
+}
+
+.thumbnails-menu > div :hover {
+  filter: grayscale(0.6) brightness(1.3);
+  cursor: pointer;
+}
+
+.active-thumbnail {
+  outline: 4px solid var(--primary-color1);
+}
+
+.active-thumbnail > img {
+  filter: grayscale(0.6) brightness(1.2);
 }
 
 .light-box {
@@ -100,6 +114,13 @@
     contrast(100%);
 }
 
+.lb-close-menu > img:hover,
+.lb-previous-button > img:hover,
+.lb-next-button > img:hover {
+  filter: invert(79%) sepia(28%) saturate(7431%) hue-rotate(360deg)
+    brightness(102%) contrast(105%);
+}
+
 .lb-previous-button {
   top: 45%;
   left: -25px;
@@ -110,17 +131,34 @@
   right: -25px;
 }
 
-.lb-thumbnails-list {
-  max-width: 75%;
+.lb-thumbnails-menu {
+  max-width: 20%;
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  justify-content: space-between;
 }
 
-.lb-thumb-img {
-  max-height: 80%;
-
+.lb-thumbnails-menu > div {
+  max-width: 20%;
   border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+}
+
+.lb-thumbnails-menu img {
+  max-width: 100%;
+}
+
+.lb-thumbnails-menu > div :hover {
+  filter: grayscale(0.6) brightness(1.3);
+  cursor: pointer;
+}
+
+.active-thumbnail {
+  outline: 4px solid var(--primary-color1);
+}
+
+.active-thumbnail > img {
+  filter: grayscale(0.6) brightness(1.2);
 }
 
 @media screen and (max-width: 900px) {
@@ -153,17 +191,20 @@
   }
 
   .actual-photo button {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top: 48%;
     background-color: var(--secondary-color5);
     border-radius: 50%;
-    padding: 1rem;
+    height: 2.5rem;
+    width: 2.5rem;
   }
 
   .actual-photo button > img {
-    height: 1rem;
-    width: 0.8rem;
+    height: 0.8rem;
+    width: 0.6rem;
   }
 
   .previous-button {
